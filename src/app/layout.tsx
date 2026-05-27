@@ -29,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
+        <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
+          <Navbar />
+          <main className="flex-1 pt-16">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

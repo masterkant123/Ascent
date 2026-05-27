@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import SectionLabel from "@/components/SectionLabel";
 import CaseStudyMetric from "@/components/CaseStudyMetric";
 import { AbstractBlobs } from "@/components/Illustrations";
 
@@ -52,7 +53,7 @@ export default function CaseStudiesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Case Studies</p>
+              <SectionLabel>Case Studies</SectionLabel>
               <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-charcoal leading-[1.1]">
                 Real results for real businesses.
               </h1>

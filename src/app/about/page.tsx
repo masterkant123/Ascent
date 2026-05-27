@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import CheckIcon from "@/components/CheckIcon";
+import SectionLabel from "@/components/SectionLabel";
+import StarRating from "@/components/StarRating";
 import { AbstractBlobs, LaunchIllustration } from "@/components/Illustrations";
 
 export const metadata: Metadata = {
@@ -48,7 +52,7 @@ const values = [
 ];
 
 const stats = [
-  { value: "50+", label: "Projects delivered" },
+  { value: "★★★★★", label: "5-star rated" },
   { value: "6 weeks", label: "Average time to launch" },
   { value: "98%", label: "Client satisfaction" },
   { value: "24/7", label: "Ongoing support" },
@@ -121,7 +125,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">About Ascent</p>
+              <SectionLabel>About Ascent</SectionLabel>
               <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-charcoal leading-[1.1]">
                 A technical partner for founders.
               </h1>
@@ -131,19 +135,69 @@ export default function AboutPage() {
               <p className="mt-4 text-lg text-stone leading-relaxed">
                 We focus on execution, speed, and real outcomes. No fluff, no endless meetings — just shipping great products that grow your business.
               </p>
+
+              {/* Founder card — visible on mobile only */}
+              <div className="lg:hidden mt-8 flex items-center gap-4 rounded-2xl border border-tan/60 bg-sand px-5 py-4">
+                <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full border-2 border-tan/60 bg-tan">
+                  <Image
+                    src="/founder.jpg"
+                    alt="Founder"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-charcoal">Daniel Shar</p>
+                  <p className="text-xs text-stone">Founder, Ascent</p>
+                  <p className="mt-1 text-xs text-stone leading-relaxed">Building products that grow businesses.</p>
+                </div>
+              </div>
+
+              {/* Stats strip — mobile only */}
+              <div className="lg:hidden mt-5 grid grid-cols-3 gap-3">
+                <div className="rounded-xl border border-tan/60 bg-sand p-3 text-center">
+                  <div className="flex justify-center">
+                    <StarRating />
+                  </div>
+                  <div className="mt-1 text-[11px] text-stone">Rated</div>
+                </div>
+                {[{ value: "6w", label: "Avg launch" }, { value: "98%", label: "Satisfaction" }].map((s) => (
+                  <div key={s.label} className="rounded-xl border border-tan/60 bg-sand p-3 text-center">
+                    <div className="text-lg font-semibold text-charcoal">{s.value}</div>
+                    <div className="mt-0.5 text-[11px] text-stone">{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
+
             <div className="relative hidden lg:block">
               <div className="relative overflow-hidden rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="absolute inset-0">
                   <AbstractBlobs variant="emerald" />
                 </div>
                 <div className="relative grid gap-4 p-8">
+                  {/* Founder row on desktop card */}
+                  <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                    <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-white/20 bg-white/10">
+                      <Image
+                        src="/founder.jpg"
+                        alt="Daniel Shar, Founder of Ascent"
+                        fill
+                        sizes="56px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-cream">Daniel Shar</p>
+                      <p className="text-xs text-cream/50">Founder, Ascent</p>
+                    </div>
+                  </div>
                   <div className="rounded-2xl border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
                     <p className="text-xs font-medium uppercase tracking-[0.15em] text-cream/60">Partner model</p>
                     <div className="mt-4 grid grid-cols-2 gap-3">
                       <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                        <div className="text-2xl font-semibold text-cream">50+</div>
-                        <div className="mt-1 text-xs uppercase tracking-[0.15em] text-cream/45">Projects</div>
+                        <StarRating />
+                        <div className="mt-1 text-xs uppercase tracking-[0.15em] text-cream/45">Rated</div>
                       </div>
                       <div className="rounded-xl border border-white/10 bg-white/5 p-4">
                         <div className="text-2xl font-semibold text-cream">6w</div>
@@ -188,25 +242,25 @@ export default function AboutPage() {
 
       <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <ScrollReveal>
-              <div>
-                <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Our mission</p>
-                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal">
+              <div className="h-full rounded-2xl border border-tan/60 bg-sand/50 p-8 sm:p-10">
+                <SectionLabel>Our mission</SectionLabel>
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-charcoal">
                   Technology shouldn&apos;t be the bottleneck.
                 </h2>
-                <p className="mt-6 text-base text-stone leading-relaxed">
+                <p className="mt-5 text-base text-stone leading-relaxed">
                   Ascent exists to give founders and growing businesses access to the same calibre of technical execution that well-funded startups take for granted. Too many good ideas stall because the person behind them has to choose between an agency that moves slowly, a freelancer who can&apos;t scale, or trying to learn it all themselves. We remove that friction. From the first line of code to long-term optimisation, we act as your embedded technical team — building, launching, and improving your product so you can focus on the business around it.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div>
-                <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Who we work with</p>
-                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal">
+              <div className="h-full rounded-2xl border border-tan/60 bg-sand/50 p-8 sm:p-10">
+                <SectionLabel>Who we work with</SectionLabel>
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-charcoal">
                   Built for builders.
                 </h2>
-                <p className="mt-6 text-base text-stone leading-relaxed">
+                <p className="mt-5 text-base text-stone leading-relaxed">
                   Our clients are non-technical founders turning a validated idea into their first product, e-commerce brands on Shopify that need better conversion and faster iteration, and established businesses with a live product that needs ongoing development, performance work, or a team to take ownership of the technical side. Whether you&apos;re pre-launch or post-revenue, if you need a technical partner who ships fast and thinks long-term, that&apos;s exactly what we do.
                 </p>
               </div>
@@ -220,7 +274,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <ScrollReveal>
-                <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Our values</p>
+                <SectionLabel>Our values</SectionLabel>
                 <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal">
                   What drives how we work.
                 </h2>

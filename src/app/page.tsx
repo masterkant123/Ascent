@@ -16,12 +16,12 @@ function TrustBar() {
   ];
 
   return (
-    <section className="border-y border-tan/60 bg-sand">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-7">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+    <section className="hidden sm:block border-b border-tan/40 bg-sand">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4 sm:py-7">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           {trustItems.map((item, i) => (
             <div key={item} className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full border border-tan/60 bg-cream px-4 py-2 text-sm font-medium text-charcoal shadow-sm shadow-tan/20">
+              <span className="inline-flex items-center rounded-full border border-tan/60 bg-cream px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-charcoal shadow-sm shadow-tan/20">
                 {item}
               </span>
               {i < trustItems.length - 1 && (
@@ -37,13 +37,13 @@ function TrustBar() {
 
 function WhatWeDoSection() {
   return (
-    <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
+    <section className="bg-cream pt-10 pb-12 sm:pt-20 sm:pb-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <ScrollReveal>
             <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">What we do</p>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal">
-              From idea to scale — we handle the entire journey.
+              From idea to scale, we handle the entire journey.
             </h2>
             <p className="mt-4 text-lg text-stone leading-relaxed">
               Whether you&apos;re starting from scratch or looking to grow, Ascent helps you build, optimise, and maintain your business.
@@ -109,7 +109,7 @@ const services = [
 
 function ServicesOverview() {
   return (
-    <section className="bg-sand-dark py-16 sm:py-20 border-b border-tan/60">
+    <section className="bg-gradient-to-b from-cream via-sand-dark to-cream py-10 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, i) => (
@@ -139,7 +139,7 @@ function ServicesOverview() {
         <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm font-medium text-bark hover:text-charcoal transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-bark/40 bg-cream px-6 py-2.5 text-sm font-medium text-bark shadow-sm transition-all hover:border-bark hover:bg-sand hover:shadow-md"
           >
             View all services
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -207,7 +207,7 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
+    <section className="bg-cream pt-8 pb-12 sm:pt-20 sm:pb-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
           <ScrollReveal>
@@ -259,7 +259,7 @@ function ProcessSection() {
         <div className="mt-12 text-center">
           <Link
             href="/process"
-            className="inline-flex items-center gap-2 text-sm font-medium text-bark hover:text-charcoal transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-bark/40 bg-cream px-6 py-2.5 text-sm font-medium text-bark shadow-sm transition-all hover:border-bark hover:bg-sand hover:shadow-md"
           >
             Learn about our process
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -310,7 +310,7 @@ const reasons = [
 
 function WhyAscent() {
   return (
-    <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
+    <section className="bg-gradient-to-b from-cream to-sand pt-12 pb-20 sm:pt-20 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-start">
           <ScrollReveal>
@@ -365,7 +365,7 @@ function WhyAscent() {
 
 function FinalCTA() {
   return (
-    <section className="bg-charcoal py-16 sm:py-20">
+    <section className="bg-gradient-to-b from-charcoal/90 to-charcoal py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-cream">
           Ready to build something real?

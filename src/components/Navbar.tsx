@@ -4,15 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { AscentInline } from "@/components/AscentLogo";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/process", label: "Process" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { navLinks as links } from "@/lib/navigation";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);

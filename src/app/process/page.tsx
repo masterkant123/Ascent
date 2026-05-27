@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import ProcessThumbnail from "@/components/ProcessThumbnails";
+import SectionLabel from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Process — Ascent",
@@ -103,7 +103,7 @@ export default function ProcessPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Our process</p>
+              <SectionLabel>Our process</SectionLabel>
               <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-charcoal leading-[1.1]">
                 A proven path from idea to scale.
               </h1>
@@ -111,8 +111,20 @@ export default function ProcessPage() {
                 We follow a structured 5-step process that&apos;s been refined across dozens of projects. No ambiguity, no surprises.
               </p>
             </div>
-            <div className="relative hidden lg:block">
-              <div className="rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
+            <div className="relative">
+              {/* Mobile: horizontal step pills */}
+              <div className="lg:hidden flex flex-wrap gap-2 mt-2">
+                {steps.map((step) => (
+                  <div key={step.number} className="flex items-center gap-2 rounded-full border border-tan/60 bg-sand px-3 py-1.5">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream">
+                      <span className="text-[10px] font-semibold">{step.number}</span>
+                    </div>
+                    <span className="text-xs font-medium text-charcoal">{step.title}</span>
+                  </div>
+                ))}
+              </div>
+              {/* Desktop: dark step list card */}
+              <div className="hidden lg:block rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="grid gap-4 p-8">
                   {steps.map((step) => (
                     <div key={step.number} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -134,43 +146,44 @@ export default function ProcessPage() {
 
       <section className="bg-cream pb-16 sm:pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="space-y-0">
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.number}>
-                <div className="relative">
-                  {i < steps.length - 1 && (
-                    <div className="absolute left-[27px] top-[72px] bottom-0 w-px bg-tan hidden sm:block" />
-                  )}
-                  <div className="grid grid-cols-1 sm:grid-cols-[56px_1fr] gap-6 sm:gap-10 py-10 border-b border-tan/60 last:border-b-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-sand border border-tan/60 text-bark flex-shrink-0">
-                      {step.icon}
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-8 items-start">
-                      <div>
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm sm:text-base font-semibold text-bark">{step.number}</span>
-                          <h2 className="text-2xl font-semibold text-charcoal">{step.title}</h2>
+          <div className="space-y-4">
+            {steps.map((step, i) => {
+              const color = ['#C4A882', '#5b8fb9', '#6aaa7e', '#d4956a', '#8b7ec8'][i];
+              return (
+                <ScrollReveal key={step.number}>
+                  <div
+                    className="rounded-2xl border border-tan/60 bg-cream overflow-hidden shadow-sm"
+                    style={{ borderLeftColor: color, borderLeftWidth: '4px' }}
+                  >
+                    <div className="p-6 sm:p-8">
+                      <div className="flex items-start gap-4">
+                        <div
+                          className="flex h-11 w-11 items-center justify-center rounded-xl flex-shrink-0"
+                          style={{ backgroundColor: color + '20', color }}
+                        >
+                          {step.icon}
                         </div>
-                        <p className="text-base text-stone leading-relaxed">{step.description}</p>
-                        <ul className="mt-4 space-y-2">
-                          {step.details.map((detail) => (
-                            <li key={detail} className="flex items-start gap-3 text-sm text-stone">
-                              <svg className="h-4 w-4 mt-0.5 text-warm flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                              </svg>
-                              {detail}
-                            </li>
-                          ))}
-                        </ul>
+                        <div>
+                          <p className="text-xs font-semibold tracking-[0.15em] uppercase" style={{ color }}>{step.number}</p>
+                          <h2 className="text-xl font-semibold text-charcoal">{step.title}</h2>
+                        </div>
                       </div>
-                      <div className="hidden lg:block relative h-32 rounded-xl overflow-hidden border border-tan/60">
-                        <ProcessThumbnail index={i} />
-                      </div>
+                      <p className="mt-4 text-base text-stone leading-relaxed">{step.description}</p>
+                      <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                        {step.details.map((detail) => (
+                          <li key={detail} className="flex items-start gap-2.5 text-sm text-stone">
+                            <svg className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color }} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>

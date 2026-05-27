@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { OptimiseIllustration } from "@/components/Illustrations";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from "@/lib/config";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,6 +19,7 @@ export default function ContactPage() {
     const payload = {
       name: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
+      phone: String(formData.get("phone") ?? "").trim(),
       message: String(formData.get("message") ?? "").trim(),
     };
 
@@ -90,58 +91,38 @@ export default function ContactPage() {
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <a
-                  href="mailto:ascentinquiryform@gmail.com"
-                  className="rounded-2xl border border-tan/60 bg-sand/55 p-4 transition-colors hover:border-bark/30 hover:bg-sand"
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="group flex items-center gap-4 rounded-2xl border border-bark/40 bg-sand px-5 py-4 shadow-sm transition-all hover:border-bark hover:shadow-md"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-tan/60 bg-cream text-bark">
-                      <svg
-                        aria-hidden="true"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.8}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21.75 7.5v9A2.25 2.25 0 0 1 19.5 18.75h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0v.243a2.25 2.25 0 0 1-.832 1.755l-7.5 6.136a2.25 2.25 0 0 1-2.836 0l-7.5-6.136A2.25 2.25 0 0 1 2.25 7.743V7.5"
-                        />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="text-sm font-medium text-charcoal">Email us</h3>
-                      <p className="mt-1 break-all text-sm text-stone">ascentinquiryform@gmail.com</p>
-                    </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-tan/60 bg-cream text-bark flex-shrink-0">
+                    <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 7.5v9A2.25 2.25 0 0 1 19.5 18.75h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0v.243a2.25 2.25 0 0 1-.832 1.755l-7.5 6.136a2.25 2.25 0 0 1-2.836 0l-7.5-6.136A2.25 2.25 0 0 1 2.25 7.743V7.5" />
+                    </svg>
                   </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-bark">Email us</p>
+                    <p className="mt-0.5 truncate text-sm font-medium text-charcoal">{CONTACT_EMAIL}</p>
+                  </div>
+                  <svg className="h-4 w-4 text-bark/40 group-hover:text-bark transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
                 </a>
                 <a
-                  href="tel:+61435174559"
-                  className="rounded-2xl border border-tan/60 bg-sand/55 p-4 transition-colors hover:border-bark/30 hover:bg-sand"
+                  href={`tel:${CONTACT_PHONE_TEL}`}
+                  className="group flex items-center gap-4 rounded-2xl border border-bark/40 bg-sand px-5 py-4 shadow-sm transition-all hover:border-bark hover:shadow-md"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-tan/60 bg-cream text-bark">
-                      <svg
-                        aria-hidden="true"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.8}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h2.176c.966 0 1.792.694 1.987 1.64l.876 4.204a2.25 2.25 0 0 1-.97 2.31l-1.51 1.007a12.042 12.042 0 0 0 5.53 5.53l1.007-1.51a2.25 2.25 0 0 1 2.31-.97l4.204.876a2.25 2.25 0 0 1 1.64 1.987V19.5a2.25 2.25 0 0 1-2.25 2.25h-.75C9.447 21.75 2.25 14.553 2.25 5.25V4.5Z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-medium text-charcoal">Call us</h3>
-                      <p className="mt-1 text-sm text-stone">0435 174 559</p>
-                    </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-tan/60 bg-cream text-bark flex-shrink-0">
+                    <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h2.176c.966 0 1.792.694 1.987 1.64l.876 4.204a2.25 2.25 0 0 1-.97 2.31l-1.51 1.007a12.042 12.042 0 0 0 5.53 5.53l1.007-1.51a2.25 2.25 0 0 1 2.31-.97l4.204.876a2.25 2.25 0 0 1 1.64 1.987V19.5a2.25 2.25 0 0 1-2.25 2.25h-.75C9.447 21.75 2.25 14.553 2.25 5.25V4.5Z" />
+                    </svg>
                   </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-bark">Call us</p>
+                    <p className="mt-0.5 text-sm font-medium text-charcoal">{CONTACT_PHONE_DISPLAY}</p>
+                  </div>
+                  <svg className="h-4 w-4 text-bark/40 group-hover:text-bark transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
                 </a>
               </div>
 
@@ -218,6 +199,18 @@ export default function ContactPage() {
                         required
                         className="w-full rounded-xl border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
                         placeholder="you@company.com"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">
+                        Phone number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="w-full rounded-xl border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
+                        placeholder="0400 000 000"
                       />
                     </div>
                     <div>

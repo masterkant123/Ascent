@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import CheckIcon from "@/components/CheckIcon";
+import SectionLabel from "@/components/SectionLabel";
 import {
   AbstractBlobs,
   LaunchIllustration,
@@ -67,7 +69,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Services</p>
+              <SectionLabel>Services</SectionLabel>
               <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-charcoal leading-[1.1]">
                 Everything you need to build, grow, and maintain.
               </h1>
@@ -139,9 +141,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2.5">
                     {service.includes.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-stone">
-                        <svg className="h-4 w-4 mt-0.5 text-warm flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                        <CheckIcon className="mt-0.5" />
                         {item}
                       </li>
                     ))}

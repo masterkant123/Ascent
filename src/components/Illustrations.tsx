@@ -117,7 +117,7 @@ export function OperateIllustration() {
                   fill="none"
                   strokeDasharray="100"
                   initial={{ strokeDashoffset: 100 }}
-                  animate={{ strokeDashoffset: 18 }}
+                  animate={{ strokeDashoffset: 1 }}
                   transition={{ duration: 1.6, delay: 0.4, ease: "easeOut" }}
                 />
               </svg>

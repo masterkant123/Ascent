@@ -16,10 +16,10 @@ export function AscentMark({ className = "" }: { className?: string }) {
 
 export function AscentInline({ className = "" }: { className?: string }) {
   return (
-    <div className={`inline-flex items-center gap-2.5 ${className}`} role="img" aria-label="Ascent">
-      <AscentMark className="h-7 w-7" />
+    <div className={`inline-flex items-center gap-1 ${className}`} role="img" aria-label="Ascent">
+      <AscentMark className="h-6 w-6 translate-y-px" />
       <span className="text-xl font-semibold leading-none" style={{ letterSpacing: "-0.02em" }}>
-        Ascent
+        scent
       </span>
     </div>
   );

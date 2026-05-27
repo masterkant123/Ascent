@@ -106,7 +106,8 @@ export default function HeroLaptop() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Build, launch, and scale your business —{" "}
+              Build, launch, and scale your business
+              <br />
               <span className="text-warm">without the technical headaches.</span>
             </motion.h1>
             <motion.p
