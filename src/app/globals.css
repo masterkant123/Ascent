@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FDFBF7;
-  --foreground: #2C2825;
-  --cream: #FDFBF7;
-  --sand: #F5F0E8;
-  --tan: #E8E0D4;
-  --warm: #C4A882;
-  --bark: #8B7355;
-  --charcoal: #2C2825;
-  --stone: #78716C;
-  --sand-dark: #EDE5D8;
+  --background: #F7F8F5;
+  --foreground: #121417;
+  --cream: #F7F8F5;
+  --sand: #E9F0EA;
+  --tan: #CED8D1;
+  --warm: #4F7CFF;
+  --bark: #0F766E;
+  --charcoal: #121417;
+  --stone: #5D6670;
+  --sand-dark: #DDE8E1;
 }
 
 @theme inline {
@@ -28,14 +28,150 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-body {
+* {
+  box-sizing: border-box;
+}
+
+html {
   background: var(--background);
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(15, 118, 110, 0.12), transparent 28rem),
+    linear-gradient(180deg, #F7F8F5 0%, #EEF3EF 42%, #F7F8F5 100%);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+html[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(79, 124, 255, 0.11), transparent 26rem),
+    linear-gradient(180deg, #FBFCF8 0%, #EEF4EF 48%, #FBFCF8 100%);
+}
+
+html[data-theme="light"] section.bg-charcoal,
+html[data-theme="light"] footer.bg-charcoal {
+  background-color: #F8FAF6 !important;
+}
+
+html[data-theme="light"] section.bg-charcoal .text-cream,
+html[data-theme="light"] footer.bg-charcoal .text-cream {
+  color: #121417 !important;
+}
+
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/80"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/80"] {
+  color: rgba(18, 20, 23, 0.8) !important;
+}
+
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/75"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/70"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/68"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/65"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/64"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/60"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/75"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/70"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/68"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/65"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/64"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/60"] {
+  color: rgba(18, 20, 23, 0.66) !important;
+}
+
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/55"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/50"],
+html[data-theme="light"] section.bg-charcoal [class~="text-cream/45"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/55"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/50"],
+html[data-theme="light"] footer.bg-charcoal [class~="text-cream/45"] {
+  color: rgba(18, 20, 23, 0.5) !important;
+}
+
+html[data-theme="light"] section.bg-charcoal [class~="border-cream/20"],
+html[data-theme="light"] section.bg-charcoal [class~="border-cream/10"],
+html[data-theme="light"] footer.bg-charcoal [class~="border-cream/20"],
+html[data-theme="light"] footer.bg-charcoal [class~="border-cream/10"] {
+  border-color: rgba(18, 20, 23, 0.14) !important;
+}
+
+html[data-theme="light"] section.bg-charcoal [class~="bg-charcoal/55"],
+html[data-theme="light"] section.bg-charcoal [class~="bg-charcoal/45"],
+html[data-theme="light"] footer.bg-charcoal [class~="bg-charcoal/55"],
+html[data-theme="light"] footer.bg-charcoal [class~="bg-charcoal/45"] {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+html[data-theme="light"] section.bg-charcoal [class~="border-white/10"],
+html[data-theme="light"] footer.bg-charcoal [class~="border-white/10"] {
+  border-color: rgba(18, 20, 23, 0.1) !important;
+}
+
+html[data-theme="light"] .hero-primary-cta {
+  background-color: var(--warm) !important;
+  border: 1px solid rgba(43, 89, 220, 0.42) !important;
+  box-shadow: 0 18px 38px rgba(79, 124, 255, 0.22) !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] .hero-primary-cta:hover {
+  background-color: #345FE8 !important;
+}
+
+html[data-theme="light"] .hero-secondary-cta {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(18, 20, 23, 0.18) !important;
+  color: var(--charcoal) !important;
+}
+
+html[data-theme="light"] .hero-secondary-cta:hover {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(79, 124, 255, 0.38) !important;
+}
+
+html[data-theme="light"] a.rounded-full[class~="bg-warm"],
+html[data-theme="light"] button.rounded-full[class~="bg-warm"] {
+  border: 1px solid rgba(43, 89, 220, 0.38) !important;
+}
+
+html[data-theme="light"] a.rounded-full[class~="bg-warm"]:hover,
+html[data-theme="light"] button.rounded-full[class~="bg-warm"]:hover {
+  background-color: #345FE8 !important;
+}
+
+html[data-theme="light"] a.rounded-full[class~="bg-charcoal"],
+html[data-theme="light"] button.rounded-full[class~="bg-charcoal"] {
+  border: 1px solid rgba(18, 20, 23, 0.22) !important;
+}
+
+html[data-theme="light"] a.rounded-full[class~="bg-charcoal"]:hover,
+html[data-theme="light"] button.rounded-full[class~="bg-charcoal"]:hover {
+  background-color: #0A0C0F !important;
+}
+
+html[data-theme="light"] a.rounded-full[class~="bg-cream"],
+html[data-theme="light"] button.rounded-full[class~="bg-cream"] {
+  border: 1px solid rgba(18, 20, 23, 0.14) !important;
+}
+
+html[data-theme="light"] .hero-primary-cta {
+  border-color: rgba(43, 89, 220, 0.42) !important;
+}
+
+a,
+button,
+input,
+textarea {
+  touch-action: manipulation;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(79, 124, 255, 0.45);
+  outline-offset: 3px;
 }
 
 ::selection {

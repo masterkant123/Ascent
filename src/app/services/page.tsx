@@ -78,22 +78,22 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
+              <div className="relative overflow-hidden rounded-lg border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="absolute inset-0">
                   <AbstractBlobs variant="indigo" />
                 </div>
                 <div className="relative grid gap-4 p-8">
-                  <div className="rounded-2xl border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
                     <p className="text-xs font-medium uppercase tracking-[0.15em] text-cream/60">Service stack</p>
                     <div className="mt-4 grid grid-cols-3 gap-3">
                       {["Launch", "Optimise", "Operate"].map((item) => (
-                        <div key={item} className="rounded-xl border border-white/10 bg-white/5 p-3 text-center text-sm font-medium text-cream">
+                        <div key={item} className="rounded-md border border-white/10 bg-white/5 p-3 text-center text-sm font-medium text-cream">
                           {item}
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
                     <div className="flex items-center justify-between text-sm text-cream">
                       <span>Execution coverage</span>
                       <span className="text-emerald-300">End-to-end</span>
@@ -102,10 +102,10 @@ export default function ServicesPage() {
                       <div className="h-full w-[88%] rounded-full bg-indigo-400" />
                     </div>
                     <div className="mt-4 grid grid-cols-2 gap-3 text-xs text-cream/55">
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">MVP builds</div>
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">Growth loops</div>
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">Ongoing support</div>
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">Analytics</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">MVP builds</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">Growth loops</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">Ongoing support</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">Analytics</div>
                     </div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <ScrollReveal key={service.tag}>
               <div
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl border border-tan/60 overflow-hidden ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-lg border border-tan/60 overflow-hidden ${
                   i % 2 === 1 ? "bg-sand" : "bg-cream"
                 }`}
               >
@@ -147,7 +147,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
 
-                  <div className="mt-6 rounded-xl bg-cream border border-tan/60 p-4">
+                  <div className="mt-6 rounded-md bg-cream border border-tan/60 p-4">
                     <p className="text-xs font-medium tracking-wider uppercase text-bark mb-1">Outcome</p>
                     <p className="text-sm text-charcoal font-medium">{service.outcome}</p>
                   </div>

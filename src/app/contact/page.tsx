@@ -67,21 +67,21 @@ export default function ContactPage() {
 
           <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-start lg:gap-16">
             <div className="order-2 lg:order-1">
-              <div className="w-full rounded-2xl overflow-hidden border border-tan/60 bg-charcoal shadow-lg shadow-tan/20">
+              <div className="w-full rounded-lg overflow-hidden border border-tan/60 bg-charcoal shadow-lg shadow-tan/20">
                 <div className="grid sm:grid-cols-[1fr_0.9fr]">
                   <div className="relative min-h-[180px]">
                     <OptimiseIllustration />
                   </div>
                   <div className="space-y-3 bg-charcoal p-4 text-cream">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="rounded-lg border border-white/10 bg-white/5 p-4">
                       <p className="text-xs uppercase tracking-[0.15em] text-cream/50">What happens next</p>
                       <p className="mt-2 text-sm text-cream/80">We review your goals, identify priorities, and follow up with practical next steps.</p>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="rounded-lg border border-white/10 bg-white/5 p-4">
                       <p className="text-lg font-semibold">01. Share context</p>
                       <p className="mt-1 text-sm text-cream/65">Tell us what you&apos;re building and where you&apos;re stuck.</p>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="rounded-lg border border-white/10 bg-white/5 p-4">
                       <p className="text-lg font-semibold">02. Book a meeting</p>
                       <p className="mt-1 text-sm text-cream/65">We respond with priorities, technical direction, and next steps.</p>
                     </div>
@@ -92,9 +92,9 @@ export default function ContactPage() {
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="group flex items-center gap-4 rounded-2xl border border-bark/40 bg-sand px-5 py-4 shadow-sm transition-all hover:border-bark hover:shadow-md"
+                  className="group flex items-center gap-4 rounded-lg border border-bark/40 bg-sand px-5 py-4 shadow-sm transition-all hover:border-bark hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-tan/60 bg-cream text-bark flex-shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md border border-tan/60 bg-cream text-bark flex-shrink-0">
                     <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 7.5v9A2.25 2.25 0 0 1 19.5 18.75h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0v.243a2.25 2.25 0 0 1-.832 1.755l-7.5 6.136a2.25 2.25 0 0 1-2.836 0l-7.5-6.136A2.25 2.25 0 0 1 2.25 7.743V7.5" />
                     </svg>
@@ -109,9 +109,9 @@ export default function ContactPage() {
                 </a>
                 <a
                   href={`tel:${CONTACT_PHONE_TEL}`}
-                  className="group flex items-center gap-4 rounded-2xl border border-bark/40 bg-sand px-5 py-4 shadow-sm transition-all hover:border-bark hover:shadow-md"
+                  className="group flex items-center gap-4 rounded-lg border border-bark/40 bg-sand px-5 py-4 shadow-sm transition-all hover:border-bark hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-tan/60 bg-cream text-bark flex-shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md border border-tan/60 bg-cream text-bark flex-shrink-0">
                     <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h2.176c.966 0 1.792.694 1.987 1.64l.876 4.204a2.25 2.25 0 0 1-.97 2.31l-1.51 1.007a12.042 12.042 0 0 0 5.53 5.53l1.007-1.51a2.25 2.25 0 0 1 2.31-.97l4.204.876a2.25 2.25 0 0 1 1.64 1.987V19.5a2.25 2.25 0 0 1-2.25 2.25h-.75C9.447 21.75 2.25 14.553 2.25 5.25V4.5Z" />
                     </svg>
@@ -161,7 +161,7 @@ export default function ContactPage() {
 
             <div className="order-1 lg:order-2">
               {submitted ? (
-                <div className="rounded-2xl border border-tan/60 bg-sand p-10 text-center">
+                <div className="rounded-lg border border-tan/60 bg-sand p-10 text-center">
                   <div className="flex h-14 w-14 mx-auto items-center justify-center rounded-full bg-cream text-warm border border-tan/60">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -173,7 +173,7 @@ export default function ContactPage() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="rounded-2xl border border-tan/60 bg-sand p-8 sm:p-10">
+                <form onSubmit={handleSubmit} className="rounded-lg border border-tan/60 bg-sand p-8 sm:p-10">
                   <div className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-2">
@@ -184,7 +184,7 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         required
-                        className="w-full rounded-xl border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
+                        className="w-full rounded-md border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
                         placeholder="Your name"
                       />
                     </div>
@@ -197,7 +197,7 @@ export default function ContactPage() {
                         id="email"
                         name="email"
                         required
-                        className="w-full rounded-xl border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
+                        className="w-full rounded-md border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
                         placeholder="you@company.com"
                       />
                     </div>
@@ -209,7 +209,7 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         name="phone"
-                        className="w-full rounded-xl border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
+                        className="w-full rounded-md border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all"
                         placeholder="0400 000 000"
                       />
                     </div>
@@ -222,7 +222,7 @@ export default function ContactPage() {
                         name="message"
                         rows={5}
                         required
-                        className="w-full rounded-xl border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all resize-none"
+                        className="w-full rounded-md border border-tan bg-cream px-4 py-3 text-sm text-charcoal placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-warm/30 focus:border-warm transition-all resize-none"
                         placeholder="Tell us about your project, idea, or challenge..."
                       />
                     </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                       {isSubmitting ? "Sending..." : "Send message"}
                     </button>
                     {submitError && (
-                      <p className="rounded-xl border border-rose-300/40 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                      <p className="rounded-md border border-rose-300/40 bg-rose-50 px-4 py-3 text-sm text-rose-700">
                         {submitError}
                       </p>
                     )}

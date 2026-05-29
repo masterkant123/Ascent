@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import CheckIcon from "@/components/CheckIcon";
 import SectionLabel from "@/components/SectionLabel";
 import StarRating from "@/components/StarRating";
 import { AbstractBlobs, LaunchIllustration } from "@/components/Illustrations";
@@ -137,7 +136,7 @@ export default function AboutPage() {
               </p>
 
               {/* Founder card — visible on mobile only */}
-              <div className="lg:hidden mt-8 flex items-center gap-4 rounded-2xl border border-tan/60 bg-sand px-5 py-4">
+              <div className="lg:hidden mt-8 flex items-center gap-4 rounded-lg border border-tan/60 bg-sand px-5 py-4">
                 <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full border-2 border-tan/60 bg-tan">
                   <Image
                     src="/founder.jpg"
@@ -155,14 +154,14 @@ export default function AboutPage() {
 
               {/* Stats strip — mobile only */}
               <div className="lg:hidden mt-5 grid grid-cols-3 gap-3">
-                <div className="rounded-xl border border-tan/60 bg-sand p-3 text-center">
+                <div className="rounded-md border border-tan/60 bg-sand p-3 text-center">
                   <div className="flex justify-center">
                     <StarRating />
                   </div>
                   <div className="mt-1 text-[11px] text-stone">Rated</div>
                 </div>
                 {[{ value: "6w", label: "Avg launch" }, { value: "98%", label: "Satisfaction" }].map((s) => (
-                  <div key={s.label} className="rounded-xl border border-tan/60 bg-sand p-3 text-center">
+                  <div key={s.label} className="rounded-md border border-tan/60 bg-sand p-3 text-center">
                     <div className="text-lg font-semibold text-charcoal">{s.value}</div>
                     <div className="mt-0.5 text-[11px] text-stone">{s.label}</div>
                   </div>
@@ -171,13 +170,13 @@ export default function AboutPage() {
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
+              <div className="relative overflow-hidden rounded-lg border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="absolute inset-0">
                   <AbstractBlobs variant="emerald" />
                 </div>
                 <div className="relative grid gap-4 p-8">
                   {/* Founder row on desktop card */}
-                  <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                  <div className="flex items-center gap-4 rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                     <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-white/20 bg-white/10">
                       <Image
                         src="/founder.jpg"
@@ -192,27 +191,27 @@ export default function AboutPage() {
                       <p className="text-xs text-cream/50">Founder, Ascent</p>
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
                     <p className="text-xs font-medium uppercase tracking-[0.15em] text-cream/60">Partner model</p>
                     <div className="mt-4 grid grid-cols-2 gap-3">
-                      <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                      <div className="rounded-md border border-white/10 bg-white/5 p-4">
                         <StarRating />
                         <div className="mt-1 text-xs uppercase tracking-[0.15em] text-cream/45">Rated</div>
                       </div>
-                      <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                      <div className="rounded-md border border-white/10 bg-white/5 p-4">
                         <div className="text-2xl font-semibold text-cream">6w</div>
                         <div className="mt-1 text-xs uppercase tracking-[0.15em] text-cream/45">Avg launch</div>
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
                     <div className="flex items-center justify-between text-sm text-cream">
                       <span>Founder support</span>
                       <span className="text-emerald-300">Active</span>
                     </div>
                     <div className="mt-4 space-y-3">
                       {["Product strategy", "Build execution", "Growth optimisation"].map((item) => (
-                        <div key={item} className="rounded-xl border border-white/10 bg-charcoal/45 px-4 py-3 text-sm text-cream/75">
+                        <div key={item} className="rounded-md border border-white/10 bg-charcoal/45 px-4 py-3 text-sm text-cream/75">
                           {item}
                         </div>
                       ))}
@@ -244,7 +243,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <ScrollReveal>
-              <div className="h-full rounded-2xl border border-tan/60 bg-sand/50 p-8 sm:p-10">
+              <div className="h-full rounded-lg border border-tan/60 bg-sand/50 p-8 sm:p-10">
                 <SectionLabel>Our mission</SectionLabel>
                 <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-charcoal">
                   Technology shouldn&apos;t be the bottleneck.
@@ -255,7 +254,7 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="h-full rounded-2xl border border-tan/60 bg-sand/50 p-8 sm:p-10">
+              <div className="h-full rounded-lg border border-tan/60 bg-sand/50 p-8 sm:p-10">
                 <SectionLabel>Who we work with</SectionLabel>
                 <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-charcoal">
                   Built for builders.
@@ -280,7 +279,7 @@ export default function AboutPage() {
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.15}>
-                <div className="mt-8 h-[350px] rounded-2xl overflow-hidden border border-tan/60 shadow-lg shadow-tan/20">
+                <div className="mt-8 h-[350px] rounded-lg overflow-hidden border border-tan/60 shadow-lg shadow-tan/20">
                   <LaunchIllustration />
                 </div>
               </ScrollReveal>
@@ -289,7 +288,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 gap-5">
               {values.map((value, i) => (
                 <ScrollReveal key={value.title} delay={i * 0.08}>
-                  <div className="rounded-2xl border border-tan/60 bg-cream p-6 transition-all hover:shadow-lg hover:shadow-tan/20 flex gap-5">
+                  <div className="rounded-lg border border-tan/60 bg-cream p-6 transition-all hover:shadow-lg hover:shadow-tan/20 flex gap-5">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sand text-bark border border-tan/60 flex-shrink-0">
                       {value.icon}
                     </div>
@@ -320,7 +319,7 @@ export default function AboutPage() {
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
             <ScrollReveal delay={0}>
-              <div className="rounded-2xl bg-cream border border-tan/60 overflow-hidden">
+              <div className="rounded-lg bg-cream border border-tan/60 overflow-hidden">
                 <div className="relative h-36 overflow-hidden bg-charcoal">
                   <AgencyVisual />
                 </div>
@@ -344,7 +343,7 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="rounded-2xl bg-cream border border-tan/60 overflow-hidden">
+              <div className="rounded-lg bg-cream border border-tan/60 overflow-hidden">
                 <div className="relative h-36 overflow-hidden bg-charcoal">
                   <FreelancerVisual />
                 </div>
@@ -368,7 +367,7 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <div className="rounded-2xl bg-cream border border-tan/60 overflow-hidden">
+              <div className="rounded-lg bg-cream border border-tan/60 overflow-hidden">
                 <div className="relative h-36 overflow-hidden bg-charcoal">
                   <AscentVisual />
                 </div>

@@ -21,7 +21,7 @@ export function LaunchIllustration() {
 
         <div className="relative mx-auto my-3 flex items-center justify-center">
           <motion.div
-            className="relative flex h-20 w-20 items-center justify-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm"
+            className="relative flex h-20 w-20 items-center justify-center rounded-lg border border-white/15 bg-white/10 backdrop-blur-sm"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -89,7 +89,7 @@ export function OperateIllustration() {
       <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:20px_20px]" />
 
       <motion.div
-        className="relative z-10 rounded-2xl border border-white/10 bg-white/5 p-3.5"
+        className="relative z-10 rounded-lg border border-white/10 bg-white/5 p-3.5"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -101,7 +101,7 @@ export function OperateIllustration() {
           </span>
         </div>
 
-        <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3">
+        <div className="mt-3 rounded-md border border-white/10 bg-white/5 p-3">
           <p className="text-[10px] uppercase tracking-[0.15em] text-white/45">System health</p>
           <div className="mt-2 flex items-center gap-3">
             <div className="relative h-12 w-12">

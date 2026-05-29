@@ -62,12 +62,12 @@ export default function CaseStudiesPage() {
               </p>
             </div>
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
+              <div className="relative overflow-hidden rounded-lg border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="absolute inset-0">
                   <AbstractBlobs variant="emerald" />
                 </div>
                 <div className="relative grid gap-4 p-8">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
                     <p className="text-xs font-medium uppercase tracking-[0.15em] text-cream/60">Recent wins</p>
                     <div className="mt-4 grid grid-cols-3 gap-3">
                       {[
@@ -75,14 +75,14 @@ export default function CaseStudiesPage() {
                         { value: "6w", label: "Launch" },
                         { value: "99.9%", label: "Uptime" },
                       ].map((item) => (
-                        <div key={item.label} className="rounded-xl border border-white/10 bg-charcoal/45 p-3 text-center">
+                        <div key={item.label} className="rounded-md border border-white/10 bg-charcoal/45 p-3 text-center">
                           <div className="text-lg font-semibold text-cream">{item.value}</div>
                           <div className="mt-1 text-[11px] uppercase tracking-[0.15em] text-cream/45">{item.label}</div>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-charcoal/55 p-5 text-sm text-cream/75 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-charcoal/55 p-5 text-sm text-cream/75 backdrop-blur-sm">
                     Practical examples of how Ascent moves products from bottlenecks to measurable outcomes.
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function CaseStudiesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-12">
           {caseStudies.map((study) => (
             <ScrollReveal key={study.title}>
-              <div className="rounded-3xl border border-tan/60 overflow-hidden">
+              <div className="rounded-lg border border-tan/60 overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-3">
                   <CaseStudyMetric metric={study.metric} label={study.metricLabel} category={study.category} />
 

@@ -124,11 +124,11 @@ export default function ProcessPage() {
                 ))}
               </div>
               {/* Desktop: dark step list card */}
-              <div className="hidden lg:block rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
+              <div className="hidden lg:block rounded-lg border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="grid gap-4 p-8">
                   {steps.map((step) => (
-                    <div key={step.number} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-cream">
+                    <div key={step.number} className="flex items-center gap-4 rounded-lg border border-white/10 bg-white/5 p-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-md border border-white/10 bg-white/5 text-cream">
                         {step.icon}
                       </div>
                       <div>
@@ -148,17 +148,17 @@ export default function ProcessPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="space-y-4">
             {steps.map((step, i) => {
-              const color = ['#C4A882', '#5b8fb9', '#6aaa7e', '#d4956a', '#8b7ec8'][i];
+              const color = ['#4F7CFF', '#5b8fb9', '#6aaa7e', '#3f9fba', '#8b7ec8'][i];
               return (
                 <ScrollReveal key={step.number}>
                   <div
-                    className="rounded-2xl border border-tan/60 bg-cream overflow-hidden shadow-sm"
+                    className="rounded-lg border border-tan/60 bg-cream overflow-hidden shadow-sm"
                     style={{ borderLeftColor: color, borderLeftWidth: '4px' }}
                   >
                     <div className="p-6 sm:p-8">
                       <div className="flex items-start gap-4">
                         <div
-                          className="flex h-11 w-11 items-center justify-center rounded-xl flex-shrink-0"
+                          className="flex h-11 w-11 items-center justify-center rounded-md flex-shrink-0"
                           style={{ backgroundColor: color + '20', color }}
                         >
                           {step.icon}

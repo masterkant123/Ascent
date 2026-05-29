@@ -2,7 +2,7 @@ export default function CheckIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"
-      className={`h-4 w-4 flex-shrink-0 text-warm ${className}`}
+      className={`h-4 w-4 flex-shrink-0 text-bark ${className}`}
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={2}
