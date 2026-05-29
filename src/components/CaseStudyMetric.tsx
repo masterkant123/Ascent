@@ -18,7 +18,7 @@ export default function CaseStudyMetric({
   return (
     <div
       ref={ref}
-      className="relative flex h-full min-h-[280px] flex-col items-center justify-center bg-sand p-8 sm:p-10 text-center"
+      className="relative flex h-full min-h-[120px] sm:min-h-[280px] flex-col items-center justify-center bg-sand p-4 sm:p-10 text-center"
     >
       <motion.span
         className="inline-block rounded-full bg-cream px-3 py-1 text-xs font-medium tracking-[0.15em] uppercase text-bark mb-6 border border-tan/60"

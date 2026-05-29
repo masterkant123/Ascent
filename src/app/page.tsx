@@ -1,357 +1,142 @@
 import Link from "next/link";
-import HeroLaptop from "@/components/HeroLaptop";
+import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
 import ScrollReveal from "@/components/ScrollReveal";
+import CheckIcon from "@/components/CheckIcon";
 import {
   LaunchIllustration,
   OptimiseIllustration,
   OperateIllustration,
-  AbstractBlobs,
 } from "@/components/Illustrations";
 
-function TrustBar() {
-  const trustItems = [
-    "Trusted by founders",
-    "Built for startups & Shopify brands",
-    "End-to-end execution",
-  ];
-
-  return (
-    <section className="border-y border-tan/60 bg-sand">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-7">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          {trustItems.map((item, i) => (
-            <div key={item} className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full border border-tan/60 bg-cream px-4 py-2 text-sm font-medium text-charcoal shadow-sm shadow-tan/20">
-                {item}
-              </span>
-              {i < trustItems.length - 1 && (
-                <span className="hidden sm:block h-1.5 w-1.5 rounded-full bg-warm/80" />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WhatWeDoSection() {
-  return (
-    <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal>
-            <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">What we do</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal">
-              From idea to scale — we handle the entire journey.
-            </h2>
-            <p className="mt-4 text-lg text-stone leading-relaxed">
-              Whether you&apos;re starting from scratch or looking to grow, Ascent helps you build, optimise, and maintain your business.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15} direction="right">
-            <div className="grid gap-4">
-              <div className="rounded-2xl border border-tan/60 bg-cream p-6 sm:p-7 shadow-sm">
-                <p className="text-xs font-medium tracking-[0.15em] uppercase text-bark">How we help</p>
-                <ul className="mt-4 space-y-3">
-                  {[
-                    "Strategy and technical planning from day one",
-                    "Fast build cycles focused on shipping outcomes",
-                    "Ongoing optimisation and long-term support",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-stone leading-relaxed">
-                      <svg className="h-4 w-4 mt-0.5 text-warm flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-tan/60 bg-sand/65 p-5">
-                  <p className="text-xs font-medium tracking-[0.15em] uppercase text-bark">Speed</p>
-                  <p className="mt-2 text-lg font-semibold text-charcoal">Move from idea to launch in weeks</p>
-                </div>
-                <div className="rounded-2xl border border-tan/60 bg-sand/65 p-5">
-                  <p className="text-xs font-medium tracking-[0.15em] uppercase text-bark">Support</p>
-                  <p className="mt-2 text-lg font-semibold text-charcoal">Stay stable, improve, and scale</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </div>
-    </section>
-  );
-}
+const proof = [
+  "Next.js product builds",
+  "Shopify growth systems",
+  "CRO and analytics",
+  "Ongoing technical ownership",
+];
 
 const services = [
   {
     title: "Launch",
-    description: "We turn your idea into a real product.",
-    items: ["MVP development", "Shopify store setup", "Landing pages", "Payments & backend systems"],
-    illustration: <LaunchIllustration />,
+    description: "Plan, build, and ship the first serious version.",
+    items: ["MVP development", "Shopify builds", "Landing pages"],
+    visual: <LaunchIllustration />,
   },
   {
     title: "Optimise",
-    description: "We improve how your product performs.",
-    items: ["Conversion rate optimisation", "UX improvements", "Funnel optimisation", "Analytics & tracking"],
-    illustration: <OptimiseIllustration />,
+    description: "Improve funnels, speed, UX, and conversion.",
+    items: ["Conversion audits", "UX improvements", "Analytics setup"],
+    visual: <OptimiseIllustration />,
   },
   {
     title: "Operate",
-    description: "We manage everything ongoing.",
-    items: ["Bug fixes", "Feature updates", "Performance improvements", "Ongoing support"],
-    illustration: <OperateIllustration />,
+    description: "Keep the product stable and moving forward.",
+    items: ["Bug fixes", "Feature updates", "Ongoing support"],
+    visual: <OperateIllustration />,
   },
 ];
 
-function ServicesOverview() {
+const process = [
+  ["01", "Map the business goal", "Define the sharpest version of the product and the fastest useful path to market."],
+  ["02", "Build in tight sprints", "Ship visible progress weekly, with scope controlled around the outcome that matters."],
+  ["03", "Launch and measure", "Deploy cleanly, track the funnel, and turn real behaviour into the next improvement loop."],
+  ["04", "Keep compounding", "Improve conversion, stability, speed, and product depth once users are actually there."],
+];
+
+const outcomes = [
+  { value: "6w", label: "average MVP launch cycle" },
+  { value: "+35%", label: "conversion lift target from focused CRO" },
+  { value: "99.9%", label: "uptime standard for operated products" },
+];
+
+function ProofStrip() {
   return (
-    <section className="bg-sand-dark py-16 sm:py-20 border-b border-tan/60">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, i) => (
-            <ScrollReveal key={service.title} delay={i * 0.1}>
-              <div className="group rounded-2xl bg-cream border border-tan/60 overflow-hidden transition-all hover:shadow-lg hover:shadow-tan/30">
-                <div className="relative h-44 overflow-hidden rounded-t-2xl">
-                  {service.illustration}
+    <section className="border-b border-charcoal/10 bg-cream">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px px-6 py-4 sm:grid-cols-4 lg:px-8">
+        {proof.map((item) => (
+          <div key={item} className="min-h-14 border-charcoal/10 px-3 py-3 text-center text-sm font-medium text-stone sm:border-l first:border-l-0">
+            {item}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function OperatingModel() {
+  return (
+    <section className="bg-cream py-16 sm:py-24">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
+        <ScrollReveal>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-bark">What changes</p>
+          <h2 className="text-3xl font-semibold leading-tight text-charcoal sm:text-4xl">
+            One team for the parts founders normally have to stitch together.
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-8 text-stone">
+            The redesign is built around a more direct promise: Ascent is not a
+            loose collection of services. It is an operating partner for getting
+            from idea, to launch, to measurable growth.
+          </p>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {services.map((service, index) => (
+            <ScrollReveal key={service.title} delay={index * 0.08}>
+              <article className="h-full overflow-hidden rounded-lg border border-charcoal/10 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-charcoal/10">
+                <div className="relative h-28 border-b border-charcoal/10">
+                  {service.visual}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-charcoal">{service.title}</h3>
-                  <p className="mt-2 text-sm text-stone leading-relaxed">{service.description}</p>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-charcoal">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-stone">{service.description}</p>
                   <ul className="mt-4 space-y-2">
                     {service.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm text-stone">
-                        <svg className="h-4 w-4 mt-0.5 text-warm flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
-                        {item}
+                        <CheckIcon className="mt-0.5" />
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </article>
             </ScrollReveal>
           ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm font-medium text-bark hover:text-charcoal transition-colors"
-          >
-            View all services
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-const steps = [
-  {
-    number: "01",
-    title: "Define your idea",
-    description: "We understand your vision, goals, and requirements.",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
-      </svg>
-    ),
-  },
-  {
-    number: "02",
-    title: "Build your product fast",
-    description: "We develop with a focus on core functionality.",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
-    title: "Launch to real users",
-    description: "We deploy and ensure everything works in production.",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.841m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-      </svg>
-    ),
-  },
-  {
-    number: "04",
-    title: "Improve conversion",
-    description: "We optimise performance, UX, and revenue.",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-      </svg>
-    ),
-  },
-  {
-    number: "05",
-    title: "Scale and maintain",
-    description: "We provide ongoing support and improvements.",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
-      </svg>
-    ),
-  },
-];
-
-function ProcessSection() {
+function ProcessPanel() {
   return (
-    <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
+    <section className="bg-sand py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.4fr]">
           <ScrollReveal>
-            <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Our process</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal">
-              A clear path from idea to scale.
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-bark">The system</p>
+            <h2 className="text-3xl font-semibold leading-tight text-charcoal sm:text-4xl">
+              A practical path that keeps momentum visible.
             </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1} direction="right">
-            <div className="relative overflow-hidden rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
-              <div className="absolute inset-0">
-                <AbstractBlobs variant="emerald" />
-              </div>
-              <div className="relative grid gap-3 p-6 sm:p-8">
-                {steps.slice(0, 3).map((step) => (
-                  <div key={step.number} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-charcoal/55 p-4 backdrop-blur-sm">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-cream">
-                      {step.icon}
-                    </div>
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.15em] text-cream/45">{step.number}</p>
-                      <p className="text-sm font-medium text-cream">{step.title}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {steps.map((step, i) => (
-            <ScrollReveal key={step.number} delay={i * 0.08}>
-              <div className="relative rounded-2xl border border-tan/60 bg-sand/50 p-5 transition-all hover:shadow-md hover:shadow-tan/20">
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-tan" />
-                )}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cream text-bark border border-tan/60">
-                    {step.icon}
-                  </div>
-                  <span className="text-xs font-semibold text-tan">{step.number}</span>
-                </div>
-                <h3 className="text-base font-semibold text-charcoal">{step.title}</h3>
-                <p className="mt-1.5 text-sm text-stone leading-relaxed">{step.description}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Link
-            href="/process"
-            className="inline-flex items-center gap-2 text-sm font-medium text-bark hover:text-charcoal transition-colors"
-          >
-            Learn about our process
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const reasons = [
-  {
-    number: "01",
-    title: "Technical + growth focused",
-    description: "We don't just build — we optimise for conversions, performance, and real business outcomes.",
-    highlight: "Build + conversion under one team",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-      </svg>
-    ),
-  },
-  {
-    number: "02",
-    title: "Fast execution",
-    description: "We ship fast without cutting corners. Your product goes from idea to live in weeks, not months.",
-    highlight: "Clear sprints and direct communication",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
-    title: "Long-term partner",
-    description: "We're not just a freelancer. We're your technical team that grows with your business.",
-    highlight: "Ongoing support and product ownership",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-      </svg>
-    ),
-  },
-];
-
-function WhyAscent() {
-  return (
-    <section className="bg-cream py-16 sm:py-20 border-b border-tan/60">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-start">
-          <ScrollReveal>
-            <div className="max-w-xl">
-              <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Why Ascent</p>
-              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-charcoal leading-[1.15]">
-                A partner built for speed, quality, and outcomes.
-              </h2>
-              <p className="mt-5 text-base text-stone leading-relaxed">
-                Most teams force you to choose between speed and quality. We design for both — and stay accountable after launch.
-              </p>
-              <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
-                {["Fast onboarding", "Senior execution", "Growth mindset", "Ongoing support"].map((item) => (
-                  <div key={item} className="rounded-xl border border-tan/60 bg-sand/65 px-3 py-2.5 text-xs text-stone">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <p className="mt-5 text-base leading-8 text-stone">
+              Each step is designed to remove ambiguity. You always know what is
+              being built, why it matters, and what happens after launch.
+            </p>
+            <Link
+              href="/process"
+              className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-charcoal px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-bark"
+            >
+              View process
+            </Link>
           </ScrollReveal>
 
-          <div className="space-y-4">
-            {reasons.map((reason, i) => (
-              <ScrollReveal key={reason.title} delay={i * 0.08} direction="right">
-                <div className="rounded-2xl border border-charcoal/40 bg-charcoal p-5 sm:p-6 backdrop-blur-sm transition-all shadow-lg shadow-charcoal/10 hover:border-charcoal/60 hover:bg-charcoal/95">
-                  <div className="flex items-start gap-4 sm:gap-5">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cream/20 bg-cream/10 text-cream flex-shrink-0">
-                      {reason.icon}
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-lg font-semibold text-cream">{reason.title}</h3>
-                        <span className="rounded-full border border-cream/20 bg-cream/10 px-2 py-0.5 text-[11px] font-medium tracking-wider text-cream/65">
-                          {reason.number}
-                        </span>
-                      </div>
-                      <p className="mt-2 text-sm text-cream/70 leading-relaxed">{reason.description}</p>
-                      <p className="mt-3 inline-flex rounded-full border border-warm/35 bg-warm/10 px-3 py-1 text-xs text-warm">
-                        {reason.highlight}
-                      </p>
-                    </div>
+          <div className="grid gap-3">
+            {process.map(([number, title, description], index) => (
+              <ScrollReveal key={number} delay={index * 0.06}>
+                <div className="grid gap-4 rounded-lg border border-charcoal/10 bg-cream p-5 sm:grid-cols-[4rem_1fr]">
+                  <div className="font-mono text-sm font-semibold text-warm">{number}</div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-charcoal">{title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-stone">{description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -363,29 +148,63 @@ function WhyAscent() {
   );
 }
 
+function Outcomes() {
+  return (
+    <section className="bg-cream py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="overflow-hidden rounded-lg border border-charcoal/10 bg-charcoal text-cream">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr]">
+            <div className="p-8 sm:p-10">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-emerald-200">Why Ascent</p>
+              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
+                Built for founders who need traction, not theatre.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-cream/68">
+                You get senior execution, short feedback loops, and a team that
+                stays close to business outcomes after the first release.
+              </p>
+            </div>
+            <div className="grid border-t border-white/10 lg:grid-cols-3 lg:border-l lg:border-t-0">
+              {outcomes.map((item) => (
+                <div key={item.value} className="border-b border-white/10 p-8 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
+                  <div className="text-4xl font-semibold text-white">{item.value}</div>
+                  <p className="mt-3 text-sm leading-6 text-cream/60">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
   return (
-    <section className="bg-charcoal py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-cream">
-          Ready to build something real?
-        </h2>
-        <p className="mt-4 text-lg text-cream/60 max-w-xl mx-auto">
-          Let&apos;s talk about your idea and how we can bring it to life together.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-cream px-7 py-3.5 text-sm font-medium text-charcoal transition-all hover:bg-sand"
-          >
-            Get in touch
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full border border-cream/20 px-7 py-3.5 text-sm font-medium text-cream transition-all hover:border-cream/40"
-          >
-            Book a meeting
-          </Link>
+    <section className="bg-cream pb-20 sm:pb-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="rounded-lg border border-charcoal/10 bg-white p-8 text-center shadow-sm sm:p-12">
+          <h2 className="text-3xl font-semibold tracking-tight text-charcoal sm:text-4xl">
+            Ready to turn the idea into something users can touch?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-stone">
+            Bring the messy context. We will help shape it into a clear first
+            sprint, a realistic launch plan, and the systems to keep improving.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-warm px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-warm/25 transition-colors hover:bg-bark"
+            >
+              Start the conversation
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-charcoal/14 px-7 py-3 text-sm font-semibold text-charcoal transition-colors hover:bg-sand"
+            >
+              Explore services
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -394,14 +213,13 @@ function FinalCTA() {
 
 export default function Home() {
   return (
-    <>
-      <HeroLaptop />
-      <TrustBar />
-      <WhatWeDoSection />
-      <ServicesOverview />
-      <ProcessSection />
-      <WhyAscent />
+    <main className="overflow-x-hidden">
+      <CinematicHero />
+      <ProofStrip />
+      <OperatingModel />
+      <ProcessPanel />
+      <Outcomes />
       <FinalCTA />
-    </>
+    </main>
   );
 }

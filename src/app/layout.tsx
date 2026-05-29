@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -21,17 +21,29 @@ export const metadata: Metadata = {
     "Ascent is your end-to-end technical partner that helps founders turn ideas into real, scalable businesses.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      data-theme="light"
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      style={{ colorScheme: "light" }}
+    >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
+        <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
+          <Navbar />
+          <main className="flex-1 pt-16">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

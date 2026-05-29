@@ -1,25 +1,30 @@
 export function AscentMark({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="0 14 100 84"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
       className={className}
     >
-      <path d="M16 90 L50 26" stroke="currentColor" strokeWidth="13" fill="none" />
-      <path d="M44 44 L84 90" stroke="currentColor" strokeWidth="13" fill="none" />
-      <path d="M44 44 L52 28 L44 28 Z" fill="currentColor" />
+      <path
+        d="M18 88 L50 22 L82 88"
+        stroke="currentColor"
+        strokeWidth="10"
+        fill="none"
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+      />
     </svg>
   );
 }
 
 export function AscentInline({ className = "" }: { className?: string }) {
   return (
-    <div className={`inline-flex items-center gap-2.5 ${className}`} role="img" aria-label="Ascent">
-      <AscentMark className="h-7 w-7" />
-      <span className="text-xl font-semibold leading-none" style={{ letterSpacing: "-0.02em" }}>
-        Ascent
+    <div className={`inline-flex items-center ${className}`} role="img" aria-label="Ascent">
+      <AscentMark className="h-5 w-5 shrink-0" />
+      <span className="-ml-0.5 text-xl font-semibold leading-none translate-y-[-0.5px]">
+        scent
       </span>
     </div>
   );
@@ -46,7 +51,6 @@ export function AscentLockup({
         className="font-semibold leading-none"
         style={{
           fontSize: markSize * 0.51,
-          letterSpacing: "-0.02em",
           marginBottom: markSize * 0.04,
         }}
       >
@@ -56,7 +60,6 @@ export function AscentLockup({
         className={`font-mono uppercase ${onDark ? "text-warm" : "text-bark"}`}
         style={{
           fontSize: markSize * 0.09,
-          letterSpacing: "0.24em",
           opacity: 0.72,
         }}
       >

@@ -6,6 +6,7 @@ export const runtime = "nodejs";
 type ContactPayload = {
   name: string;
   email: string;
+  phone: string;
   message: string;
 };
 
@@ -47,6 +48,7 @@ export async function POST(request: Request) {
   const payload: ContactPayload = {
     name: getString((json as Record<string, unknown>)?.name),
     email: getString((json as Record<string, unknown>)?.email),
+    phone: getString((json as Record<string, unknown>)?.phone),
     message: getString((json as Record<string, unknown>)?.message),
   };
 
@@ -88,6 +90,7 @@ export async function POST(request: Request) {
     "",
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
+    `Phone: ${payload.phone || "Not provided"}`,
     "",
     "Message:",
     payload.message,

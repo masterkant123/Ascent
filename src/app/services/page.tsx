@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import CheckIcon from "@/components/CheckIcon";
+import SectionLabel from "@/components/SectionLabel";
 import {
   AbstractBlobs,
   LaunchIllustration,
@@ -67,7 +69,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-medium tracking-[0.15em] uppercase text-bark mb-4">Services</p>
+              <SectionLabel>Services</SectionLabel>
               <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-charcoal leading-[1.1]">
                 Everything you need to build, grow, and maintain.
               </h1>
@@ -76,22 +78,22 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-2xl border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
+              <div className="relative overflow-hidden rounded-lg border border-tan/60 bg-charcoal shadow-xl shadow-tan/20">
                 <div className="absolute inset-0">
                   <AbstractBlobs variant="indigo" />
                 </div>
                 <div className="relative grid gap-4 p-8">
-                  <div className="rounded-2xl border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-charcoal/55 p-5 backdrop-blur-sm">
                     <p className="text-xs font-medium uppercase tracking-[0.15em] text-cream/60">Service stack</p>
                     <div className="mt-4 grid grid-cols-3 gap-3">
                       {["Launch", "Optimise", "Operate"].map((item) => (
-                        <div key={item} className="rounded-xl border border-white/10 bg-white/5 p-3 text-center text-sm font-medium text-cream">
+                        <div key={item} className="rounded-md border border-white/10 bg-white/5 p-3 text-center text-sm font-medium text-cream">
                           {item}
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+                  <div className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
                     <div className="flex items-center justify-between text-sm text-cream">
                       <span>Execution coverage</span>
                       <span className="text-emerald-300">End-to-end</span>
@@ -100,10 +102,10 @@ export default function ServicesPage() {
                       <div className="h-full w-[88%] rounded-full bg-indigo-400" />
                     </div>
                     <div className="mt-4 grid grid-cols-2 gap-3 text-xs text-cream/55">
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">MVP builds</div>
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">Growth loops</div>
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">Ongoing support</div>
-                      <div className="rounded-xl border border-white/10 bg-charcoal/45 p-3">Analytics</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">MVP builds</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">Growth loops</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">Ongoing support</div>
+                      <div className="rounded-md border border-white/10 bg-charcoal/45 p-3">Analytics</div>
                     </div>
                   </div>
                 </div>
@@ -118,7 +120,7 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <ScrollReveal key={service.tag}>
               <div
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl border border-tan/60 overflow-hidden ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-lg border border-tan/60 overflow-hidden ${
                   i % 2 === 1 ? "bg-sand" : "bg-cream"
                 }`}
               >
@@ -127,7 +129,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className={`p-8 sm:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <span className="inline-block rounded-full bg-sand-dark px-4 py-1.5 text-xs font-medium tracking-wider uppercase text-bark">
+                  <span className="inline-flex items-center rounded-full border border-teal-300/70 bg-teal-300 px-4 py-2 text-xs font-semibold tracking-[0.14em] uppercase text-teal-950 shadow-lg shadow-teal-400/25 ring-1 ring-white/85">
                     {service.tag}
                   </span>
                   <h2 className="mt-5 text-2xl sm:text-3xl font-semibold tracking-tight text-charcoal">
@@ -139,15 +141,13 @@ export default function ServicesPage() {
                   <ul className="space-y-2.5">
                     {service.includes.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-stone">
-                        <svg className="h-4 w-4 mt-0.5 text-warm flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                        <CheckIcon className="mt-0.5" />
                         {item}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-6 rounded-xl bg-cream border border-tan/60 p-4">
+                  <div className="mt-6 rounded-md bg-cream border border-tan/60 p-4">
                     <p className="text-xs font-medium tracking-wider uppercase text-bark mb-1">Outcome</p>
                     <p className="text-sm text-charcoal font-medium">{service.outcome}</p>
                   </div>
