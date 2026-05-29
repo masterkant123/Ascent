@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-charcoal/10 bg-cream/86 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="w-full px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="text-charcoal">
             <AscentInline />

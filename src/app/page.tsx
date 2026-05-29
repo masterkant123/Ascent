@@ -18,23 +18,20 @@ const proof = [
 const services = [
   {
     title: "Launch",
-    description:
-      "Scope, design, build, and ship the first serious version of your product with the essentials done properly.",
-    items: ["MVP development", "Shopify builds", "Landing pages", "Payments and backend systems"],
+    description: "Plan, build, and ship the first serious version.",
+    items: ["MVP development", "Shopify builds", "Landing pages"],
     visual: <LaunchIllustration />,
   },
   {
     title: "Optimise",
-    description:
-      "Turn traffic into revenue with better UX, cleaner funnels, faster pages, and the data to keep improving.",
-    items: ["Conversion audits", "UX improvements", "Analytics setup", "Funnel experiments"],
+    description: "Improve funnels, speed, UX, and conversion.",
+    items: ["Conversion audits", "UX improvements", "Analytics setup"],
     visual: <OptimiseIllustration />,
   },
   {
     title: "Operate",
-    description:
-      "Keep the product stable after launch with fixes, feature delivery, performance work, and practical advice.",
-    items: ["Bug fixes", "Feature updates", "Performance tuning", "Ongoing support"],
+    description: "Keep the product stable and moving forward.",
+    items: ["Bug fixes", "Feature updates", "Ongoing support"],
     visual: <OperateIllustration />,
   },
 ];
@@ -86,13 +83,13 @@ function OperatingModel() {
           {services.map((service, index) => (
             <ScrollReveal key={service.title} delay={index * 0.08}>
               <article className="h-full overflow-hidden rounded-lg border border-charcoal/10 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-charcoal/10">
-                <div className="relative h-40 border-b border-charcoal/10">
+                <div className="relative h-28 border-b border-charcoal/10">
                   {service.visual}
                 </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold text-charcoal">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-stone">{service.description}</p>
-                  <ul className="mt-5 space-y-2.5">
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-charcoal">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-stone">{service.description}</p>
+                  <ul className="mt-4 space-y-2">
                     {service.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm text-stone">
                         <CheckIcon className="mt-0.5" />

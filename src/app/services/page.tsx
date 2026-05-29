@@ -129,7 +129,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className={`p-8 sm:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <span className="inline-block rounded-full bg-sand-dark px-4 py-1.5 text-xs font-medium tracking-wider uppercase text-bark">
+                  <span className="inline-flex items-center rounded-full border border-teal-300/70 bg-teal-300 px-4 py-2 text-xs font-semibold tracking-[0.14em] uppercase text-teal-950 shadow-lg shadow-teal-400/25 ring-1 ring-white/85">
                     {service.tag}
                   </span>
                   <h2 className="mt-5 text-2xl sm:text-3xl font-semibold tracking-tight text-charcoal">

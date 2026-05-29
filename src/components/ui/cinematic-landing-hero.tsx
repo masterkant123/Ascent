@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { ArrowRight, Flame, Handshake, Check, CheckCircle2 } from "lucide-react";
 import { gsap } from "gsap";
+import { AscentInline } from "@/components/AscentLogo";
 import { cn } from "@/lib/utils";
 
 const INJECTED_STYLES = `
@@ -49,6 +50,33 @@ const INJECTED_STYLES = `
           drop-shadow(0px 4px 8px rgba(0,0,0,0.6));
   }
 
+  .hero-ascent-logo {
+      color: #E7E9EA;
+      filter:
+          drop-shadow(0px 18px 28px rgba(0,0,0,0.46))
+          drop-shadow(0px 4px 8px rgba(0,0,0,0.34));
+  }
+  .hero-ascent-logo svg {
+      width: clamp(4.6rem, 8vw, 7.4rem) !important;
+      height: clamp(4.6rem, 8vw, 7.4rem) !important;
+  }
+  .hero-ascent-logo span {
+      margin-left: -0.16em;
+      font-size: clamp(4.6rem, 8vw, 7.4rem);
+      font-weight: 650;
+      letter-spacing: -0.035em;
+  }
+
+  @media (max-width: 767px) {
+      .hero-ascent-logo svg {
+          width: clamp(3.3rem, 15vw, 4.6rem) !important;
+          height: clamp(3.3rem, 15vw, 4.6rem) !important;
+      }
+      .hero-ascent-logo span {
+          font-size: clamp(3.3rem, 15vw, 4.6rem);
+      }
+  }
+
   .premium-depth-card {
       background: linear-gradient(145deg, #5F85FF 0%, #284BD9 48%, #121C47 100%);
       box-shadow:
@@ -62,7 +90,7 @@ const INJECTED_STYLES = `
 
   .card-sheen {
       position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 50;
-      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.06) 0%, transparent 40%);
+      background: radial-gradient(800px circle at 50% 38%, rgba(255,255,255,0.06) 0%, transparent 42%);
       mix-blend-mode: screen; transition: opacity 0.3s ease;
   }
 
@@ -194,7 +222,6 @@ export interface CinematicHeroProps extends React.HTMLAttributes<HTMLDivElement>
 }
 
 export function CinematicHero({
-  brandName = "Ascent",
   tagline1 = "Build the product,",
   tagline2 = "then make it grow.",
   cardHeading = "Technical partnership, sharpened.",
@@ -213,42 +240,6 @@ export function CinematicHero({
   const containerRef = useRef<HTMLDivElement>(null);
   const mainCardRef = useRef<HTMLDivElement>(null);
   const mockupRef = useRef<HTMLDivElement>(null);
-  const requestRef = useRef<number>(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (window.scrollY > window.innerHeight * 2) return;
-
-      cancelAnimationFrame(requestRef.current);
-
-      requestRef.current = requestAnimationFrame(() => {
-        if (mainCardRef.current && mockupRef.current) {
-          const rect = mainCardRef.current.getBoundingClientRect();
-          const mouseX = e.clientX - rect.left;
-          const mouseY = e.clientY - rect.top;
-
-          mainCardRef.current.style.setProperty("--mouse-x", `${mouseX}px`);
-          mainCardRef.current.style.setProperty("--mouse-y", `${mouseY}px`);
-
-          const xVal = (e.clientX / window.innerWidth - 0.5) * 2;
-          const yVal = (e.clientY / window.innerHeight - 0.5) * 2;
-
-          gsap.to(mockupRef.current, {
-            rotationY: xVal * 12,
-            rotationX: -yVal * 12,
-            ease: "power3.out",
-            duration: 1.2,
-          });
-        }
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(requestRef.current);
-    };
-  }, []);
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
@@ -261,9 +252,9 @@ export function CinematicHero({
 
       const timedTl = gsap.timeline({ delay: 0.15 });
       timedTl
-        .to(".text-track", { duration: 1.05, autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", rotationX: 0, ease: "expo.out" })
-        .to(".text-days", { duration: 0.9, autoAlpha: 1, y: 0, filter: "blur(0px)", ease: "power4.out" }, "-=0.55")
-        .to([".hero-text-wrapper", ".bg-grid-theme"], { scale: 1.04, filter: "blur(8px)", opacity: 0.08, ease: "power2.inOut", duration: 0.9 }, "+=0.2")
+        .to(".text-track", { duration: 1.42, autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", rotationX: 0, ease: "expo.out" })
+        .to(".text-days", { duration: 1.18, autoAlpha: 1, y: 0, filter: "blur(0px)", ease: "power4.out" }, "-=0.62")
+        .to([".hero-text-wrapper", ".bg-grid-theme"], { scale: 1.04, filter: "blur(8px)", opacity: 0.08, ease: "power2.inOut", duration: 1.05 }, "+=0.72")
         .to(".main-card", { y: 0, ease: "power3.inOut", duration: 0.95 }, "<")
         .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 0.7 })
         .fromTo(
@@ -313,9 +304,7 @@ export function CinematicHero({
 
           <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-between px-4 pb-5 pt-2 md:pb-7 md:pt-4 lg:grid lg:grid-cols-[1.2fr_1fr_1.2fr] lg:gap-12 lg:px-8 lg:py-0 xl:gap-16 xl:px-4">
             <div className="card-right-text gsap-reveal order-1 z-20 flex w-full flex-col items-center justify-center lg:order-1 lg:items-start">
-              <h2 className="text-card-silver-matte text-6xl font-semibold tracking-tight md:text-[6rem] lg:mt-0 lg:text-[7.25rem] xl:text-[8rem]">
-                {brandName}
-              </h2>
+              <AscentInline className="hero-ascent-logo" />
               <a href="/contact" aria-label="Get in touch with Ascent" className="card-contact-cta btn-contact-clean group mt-5 hidden min-h-14 items-center justify-center gap-2 rounded-2xl px-8 text-base font-bold tracking-normal focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-blue-700 lg:inline-flex">
                 Get in touch
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
